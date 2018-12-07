@@ -1,0 +1,87 @@
+Faire un programme qui prend en entrée une représentation applatie d'un Rubik's Cube mélangé et qui donne en sortie la suite de mouvements nécessaires pour le résoudre.
+Le cube résolu se présente comme suit:
+	 
+    YYY
+    YYY
+    YYY
+	
+BBB RRR GGG    OOO
+BBB RRR GGG    OOO
+BBB RRR GGG    OOO
+
+    WWW
+    WWW
+    WWW
+
+Sur cette représentation la face rouge est considérée être la face du cube, la face orange l'arrière.
+Votre programme prendra en paramètre une représentation de ce cube mélangé et répondra une des suites de mouvements permettant d'atteindre un état "résolu"
+Ces mouvements seront notés selon la notation officielle.
+
+Les mouvements de base possibles sont :
+R L U D F B M S E
+
+Les mouvements complets du cube:
+x y z
+
+
+Chaque mouvement fait tourner la partie du cube correspondante dans le sens horaire relativement à la face concernée
+R : partie droite du cube
+L : partie gauche du cube
+
+U : partie du haut
+D : partie du bas
+
+F : face avant
+B : face arrière
+
+M : ligne entre la partie gauche et la partie droite, vue de gauche
+E : Ligne entre la partie haut et la partie bas, vue d'en bas
+S : ligne entre la partie de face et la partie arrière, vue de face
+
+x : rotation complète du cube dans le meme sens que R
+y : rotation complète du cube dans le meme sens que U
+z : rotation complète du cube dans le meme sens que F
+
+Les mouvements peuvent porter la mention 2 pour signifier qu'ils doivent être faits 2 fois.
+Lorsqu'un mouvement doit être fait 3 fois, on lui appose la mention '
+
+UU devient donc U2
+UUU devient donc U'
+UUUU revient à ne rien bouger et ne devrait jamais se noter.
+
+Les mouvements seront renvoyés dans l'ordre nécessaires à la bonne résolution.
+Par exemple, en partant de :
+
+    YYY
+    YYY
+    YYY
+	
+RRR GGG OOO    BBB
+BBB RRR GGG    OOO
+BBB RRR GGG    OOO
+
+    WWW
+    WWW
+    WWW
+	
+Votre programme doit renvoyer :
+
+U'
+
+En partant de :
+
+    YYW
+    YYW
+    YYW
+	
+RRR GGY OGG    WBB
+BBB RRY OGG    WOO
+BBB RRY OGG    WOO
+
+    WWG
+    WWR
+    WWR
+	
+Votre programme doit renvoyer :
+
+RU'
