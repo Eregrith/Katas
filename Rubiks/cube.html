@@ -5,35 +5,17 @@
 <body>
 
     <div id='cube'>
+        <div class="faceLetter x1  y4" onclick="Cube.applyMove(event, Cube.L, Cube.Lprime)">L</div>
+        <div class="faceLetter x7  y4" onclick="Cube.applyMove(event, Cube.R, Cube.Rprime)">R</div>
+        <div class="faceLetter x4  y1" onclick="Cube.applyMove(event, Cube.U, Cube.Uprime)">U</div>
+        <div class="faceLetter x4  y7" onclick="Cube.applyMove(event, Cube.D, Cube.Dprime)">D</div>
+        <div class="faceLetter x4  y4" onclick="Cube.applyMove(event, Cube.F, Cube.Fprime)">F</div>
+        <div class="faceLetter x10 y4" onclick="Cube.applyMove(event, Cube.B, Cube.Bprime)">B</div>
     </div>
 
     <div id="actions">
         <ul>
             <li class="btn" onclick="Cube.shuffle()">Shuffle</li>
-            <li></li>
-            <li class="btn" onclick="Cube.U()">U</li>
-            <li class="btn" onclick="Cube.U2()">U2</li>
-            <li class="btn" onclick="Cube.Uprime()">U'</li>
-            <li></li>
-            <li class="btn" onclick="Cube.D()">D</li>
-            <li class="btn" onclick="Cube.D2()">D2</li>
-            <li class="btn" onclick="Cube.Dprime()">D'</li>
-            <li></li>
-            <li class="btn" onclick="Cube.R()">R</li>
-            <li class="btn" onclick="Cube.R2()">R2</li>
-            <li class="btn" onclick="Cube.Rprime()">R'</li>
-            <li></li>
-            <li class="btn" onclick="Cube.L()">L</li>
-            <li class="btn" onclick="Cube.L2()">L2</li>
-            <li class="btn" onclick="Cube.Lprime()">L'</li>
-            <li></li>
-            <li class="btn" onclick="Cube.F()">F</li>
-            <li class="btn" onclick="Cube.F2()">F2</li>
-            <li class="btn" onclick="Cube.Fprime()">F'</li>
-            <li></li>
-            <li class="btn" onclick="Cube.B()">B</li>
-            <li class="btn" onclick="Cube.B2()">B2</li>
-            <li class="btn" onclick="Cube.Bprime()">B'</li>
         </ul>
     </div>
 

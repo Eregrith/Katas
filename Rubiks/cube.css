@@ -2,6 +2,12 @@ body {
     background-color: gray;
     --offset-x: 200;
     --offset-y: 25;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -webkit-touch-callout: none;
+    -o-user-select: none;
+    -moz-user-select: none;
 }
 
 #cube {
@@ -16,6 +22,28 @@ body {
     border-radius: 5px;
     position: absolute;
     transition: left 1s, top 1s, box-shadow 1s;
+    border: 1px black inset;
+}
+
+.faceLetter {
+    width: 85px;
+    height: 85px;
+    font-size: 48pt;
+    z-index: 5;
+    opacity: 0.2;
+    position: absolute;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 85px;
+    transition: opacity 1s;
+    -webkit-text-stroke: 1px white;
+    cursor: pointer;
+}
+
+.faceLetter:hover {
+    opacity: 1;
 }
 
 .green {
@@ -41,7 +69,6 @@ body {
 .white {
     background-color: white;
     --background-color: white;
-    border: 1px black inset;
 }
 
 .square-btn {

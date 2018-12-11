@@ -69,33 +69,45 @@ Cube = {};
         moveFromTo(F8, 3 + offsetX, 3 + offsetY, 1 + offsetX, 3 + offsetY);
     }
 
-    Cube.U = function U() {
-        let B1 = document.getElementsByClassName('x1 y4')[0];
-        let B2 = document.getElementsByClassName('x2 y4')[0];
-        let B3 = document.getElementsByClassName('x3 y4')[0];
-        
-        let R1 = document.getElementsByClassName('x4 y4')[0];
-        let R2 = document.getElementsByClassName('x5 y4')[0];
-        let R3 = document.getElementsByClassName('x6 y4')[0];
-        
-        let G1 = document.getElementsByClassName('x7 y4')[0];
-        let G2 = document.getElementsByClassName('x8 y4')[0];
-        let G3 = document.getElementsByClassName('x9 y4')[0];
-        
-        let O1 = document.getElementsByClassName('x10 y4')[0];
-        let O2 = document.getElementsByClassName('x11 y4')[0];
-        let O3 = document.getElementsByClassName('x12 y4')[0];
-        
-        let F1 = document.getElementsByClassName('x4 y1')[0];
-        let F2 = document.getElementsByClassName('x5 y1')[0];
-        let F3 = document.getElementsByClassName('x6 y1')[0];
-        
-        let F4 = document.getElementsByClassName('x4 y2')[0];
-        let F5 = document.getElementsByClassName('x6 y2')[0];
+    function squareAt(xy) {
+        return document.getElementsByClassName('square '+xy)[0];
+    }
 
-        let F6 = document.getElementsByClassName('x4 y3')[0];
-        let F7 = document.getElementsByClassName('x5 y3')[0];
-        let F8 = document.getElementsByClassName('x6 y3')[0];
+    Cube.applyMove = function applyMove(event, move, movePrime) {
+        if (event.shiftKey) {
+            movePrime();
+        } else {
+            move();
+        }
+    }
+
+    Cube.U = function U() {
+        let B1 = squareAt('x1 y4');
+        let B2 = squareAt('x2 y4');
+        let B3 = squareAt('x3 y4');
+        
+        let R1 = squareAt('x4 y4');
+        let R2 = squareAt('x5 y4');
+        let R3 = squareAt('x6 y4');
+        
+        let G1 = squareAt('x7 y4');
+        let G2 = squareAt('x8 y4');
+        let G3 = squareAt('x9 y4');
+        
+        let O1 = squareAt('x10 y4');
+        let O2 = squareAt('x11 y4');
+        let O3 = squareAt('x12 y4');
+        
+        let F1 = squareAt('x4 y1');
+        let F2 = squareAt('x5 y1');
+        let F3 = squareAt('x6 y1');
+        
+        let F4 = squareAt('x4 y2');
+        let F5 = squareAt('x6 y2');
+
+        let F6 = squareAt('x4 y3');
+        let F7 = squareAt('x5 y3');
+        let F8 = squareAt('x6 y3');
         
         moveFromTo(B1, 1, 4, 10, 4);
         moveFromTo(B2, 2, 4, 11, 4);
@@ -129,32 +141,32 @@ Cube = {};
     }
 
     Cube.R = function R() {
-        let Y1 = document.getElementsByClassName('x6 y1')[0];
-        let Y2 = document.getElementsByClassName('x6 y2')[0];
-        let Y3 = document.getElementsByClassName('x6 y3')[0];
+        let Y1 = squareAt('x6 y1');
+        let Y2 = squareAt('x6 y2');
+        let Y3 = squareAt('x6 y3');
         
-        let R1 = document.getElementsByClassName('x6 y4')[0];
-        let R2 = document.getElementsByClassName('x6 y5')[0];
-        let R3 = document.getElementsByClassName('x6 y6')[0];
+        let R1 = squareAt('x6 y4');
+        let R2 = squareAt('x6 y5');
+        let R3 = squareAt('x6 y6');
         
-        let W1 = document.getElementsByClassName('x6 y7')[0];
-        let W2 = document.getElementsByClassName('x6 y8')[0];
-        let W3 = document.getElementsByClassName('x6 y9')[0];
+        let W1 = squareAt('x6 y7');
+        let W2 = squareAt('x6 y8');
+        let W3 = squareAt('x6 y9');
         
-        let O1 = document.getElementsByClassName('x10 y4')[0];
-        let O2 = document.getElementsByClassName('x10 y5')[0];
-        let O3 = document.getElementsByClassName('x10 y6')[0];
+        let O1 = squareAt('x10 y4');
+        let O2 = squareAt('x10 y5');
+        let O3 = squareAt('x10 y6');
         
-        let F1 = document.getElementsByClassName('x7 y4')[0];
-        let F2 = document.getElementsByClassName('x8 y4')[0];
-        let F3 = document.getElementsByClassName('x9 y4')[0];
+        let F1 = squareAt('x7 y4');
+        let F2 = squareAt('x8 y4');
+        let F3 = squareAt('x9 y4');
         
-        let F4 = document.getElementsByClassName('x7 y5')[0];
-        let F5 = document.getElementsByClassName('x9 y5')[0];
+        let F4 = squareAt('x7 y5');
+        let F5 = squareAt('x9 y5');
 
-        let F6 = document.getElementsByClassName('x7 y6')[0];
-        let F7 = document.getElementsByClassName('x8 y6')[0];
-        let F8 = document.getElementsByClassName('x9 y6')[0];
+        let F6 = squareAt('x7 y6');
+        let F7 = squareAt('x8 y6');
+        let F8 = squareAt('x9 y6');
         
         moveFromTo(Y1, 6, 1, 10, 6);
         moveFromTo(Y2, 6, 2, 10, 5);
@@ -188,32 +200,32 @@ Cube = {};
     }
 
     Cube.L = function L() {
-        let Y1 = document.getElementsByClassName('x4 y1')[0];
-        let Y2 = document.getElementsByClassName('x4 y2')[0];
-        let Y3 = document.getElementsByClassName('x4 y3')[0];
+        let Y1 = squareAt('x4 y1');
+        let Y2 = squareAt('x4 y2');
+        let Y3 = squareAt('x4 y3');
         
-        let R1 = document.getElementsByClassName('x4 y4')[0];
-        let R2 = document.getElementsByClassName('x4 y5')[0];
-        let R3 = document.getElementsByClassName('x4 y6')[0];
+        let R1 = squareAt('x4 y4');
+        let R2 = squareAt('x4 y5');
+        let R3 = squareAt('x4 y6');
         
-        let W1 = document.getElementsByClassName('x4 y7')[0];
-        let W2 = document.getElementsByClassName('x4 y8')[0];
-        let W3 = document.getElementsByClassName('x4 y9')[0];
+        let W1 = squareAt('x4 y7');
+        let W2 = squareAt('x4 y8');
+        let W3 = squareAt('x4 y9');
         
-        let O1 = document.getElementsByClassName('x12 y4')[0];
-        let O2 = document.getElementsByClassName('x12 y5')[0];
-        let O3 = document.getElementsByClassName('x12 y6')[0];
+        let O1 = squareAt('x12 y4');
+        let O2 = squareAt('x12 y5');
+        let O3 = squareAt('x12 y6');
         
-        let F1 = document.getElementsByClassName('x1 y4')[0];
-        let F2 = document.getElementsByClassName('x2 y4')[0];
-        let F3 = document.getElementsByClassName('x3 y4')[0];
+        let F1 = squareAt('x1 y4');
+        let F2 = squareAt('x2 y4');
+        let F3 = squareAt('x3 y4');
         
-        let F4 = document.getElementsByClassName('x1 y5')[0];
-        let F5 = document.getElementsByClassName('x3 y5')[0];
+        let F4 = squareAt('x1 y5');
+        let F5 = squareAt('x3 y5');
 
-        let F6 = document.getElementsByClassName('x1 y6')[0];
-        let F7 = document.getElementsByClassName('x2 y6')[0];
-        let F8 = document.getElementsByClassName('x3 y6')[0];
+        let F6 = squareAt('x1 y6');
+        let F7 = squareAt('x2 y6');
+        let F8 = squareAt('x3 y6');
         
         moveFromTo(Y1, 4, 1, 4, 4);
         moveFromTo(Y2, 4, 2, 4, 5);
@@ -247,32 +259,32 @@ Cube = {};
     }
 
     Cube.F = function F() {
-        let B1 = document.getElementsByClassName('x3 y4')[0];
-        let B2 = document.getElementsByClassName('x3 y5')[0];
-        let B3 = document.getElementsByClassName('x3 y6')[0];
+        let B1 = squareAt('x3 y4');
+        let B2 = squareAt('x3 y5');
+        let B3 = squareAt('x3 y6');
         
-        let Y1 = document.getElementsByClassName('x4 y3')[0];
-        let Y2 = document.getElementsByClassName('x5 y3')[0];
-        let Y3 = document.getElementsByClassName('x6 y3')[0];
+        let Y1 = squareAt('x4 y3');
+        let Y2 = squareAt('x5 y3');
+        let Y3 = squareAt('x6 y3');
         
-        let G1 = document.getElementsByClassName('x7 y4')[0];
-        let G2 = document.getElementsByClassName('x7 y5')[0];
-        let G3 = document.getElementsByClassName('x7 y6')[0];
+        let G1 = squareAt('x7 y4');
+        let G2 = squareAt('x7 y5');
+        let G3 = squareAt('x7 y6');
         
-        let W1 = document.getElementsByClassName('x4 y7')[0];
-        let W2 = document.getElementsByClassName('x5 y7')[0];
-        let W3 = document.getElementsByClassName('x6 y7')[0];
+        let W1 = squareAt('x4 y7');
+        let W2 = squareAt('x5 y7');
+        let W3 = squareAt('x6 y7');
         
-        let F1 = document.getElementsByClassName('x4 y4')[0];
-        let F2 = document.getElementsByClassName('x5 y4')[0];
-        let F3 = document.getElementsByClassName('x6 y4')[0];
+        let F1 = squareAt('x4 y4');
+        let F2 = squareAt('x5 y4');
+        let F3 = squareAt('x6 y4');
         
-        let F4 = document.getElementsByClassName('x4 y5')[0];
-        let F5 = document.getElementsByClassName('x6 y5')[0];
+        let F4 = squareAt('x4 y5');
+        let F5 = squareAt('x6 y5');
 
-        let F6 = document.getElementsByClassName('x4 y6')[0];
-        let F7 = document.getElementsByClassName('x5 y6')[0];
-        let F8 = document.getElementsByClassName('x6 y6')[0];
+        let F6 = squareAt('x4 y6');
+        let F7 = squareAt('x5 y6');
+        let F8 = squareAt('x6 y6');
         
         moveFromTo(B1, 3, 4, 6, 3);
         moveFromTo(B2, 3, 5, 5, 3);
@@ -306,32 +318,32 @@ Cube = {};
     }
 
     Cube.D = function D() {
-        let B1 = document.getElementsByClassName('x1 y6')[0];
-        let B2 = document.getElementsByClassName('x2 y6')[0];
-        let B3 = document.getElementsByClassName('x3 y6')[0];
+        let B1 = squareAt('x1 y6');
+        let B2 = squareAt('x2 y6');
+        let B3 = squareAt('x3 y6');
         
-        let R1 = document.getElementsByClassName('x4 y6')[0];
-        let R2 = document.getElementsByClassName('x5 y6')[0];
-        let R3 = document.getElementsByClassName('x6 y6')[0];
+        let R1 = squareAt('x4 y6');
+        let R2 = squareAt('x5 y6');
+        let R3 = squareAt('x6 y6');
         
-        let G1 = document.getElementsByClassName('x7 y6')[0];
-        let G2 = document.getElementsByClassName('x8 y6')[0];
-        let G3 = document.getElementsByClassName('x9 y6')[0];
+        let G1 = squareAt('x7 y6');
+        let G2 = squareAt('x8 y6');
+        let G3 = squareAt('x9 y6');
         
-        let O1 = document.getElementsByClassName('x10 y6')[0];
-        let O2 = document.getElementsByClassName('x11 y6')[0];
-        let O3 = document.getElementsByClassName('x12 y6')[0];
+        let O1 = squareAt('x10 y6');
+        let O2 = squareAt('x11 y6');
+        let O3 = squareAt('x12 y6');
         
-        let F1 = document.getElementsByClassName('x4 y7')[0];
-        let F2 = document.getElementsByClassName('x5 y7')[0];
-        let F3 = document.getElementsByClassName('x6 y7')[0];
+        let F1 = squareAt('x4 y7');
+        let F2 = squareAt('x5 y7');
+        let F3 = squareAt('x6 y7');
         
-        let F4 = document.getElementsByClassName('x4 y8')[0];
-        let F5 = document.getElementsByClassName('x6 y8')[0];
+        let F4 = squareAt('x4 y8');
+        let F5 = squareAt('x6 y8');
 
-        let F6 = document.getElementsByClassName('x4 y9')[0];
-        let F7 = document.getElementsByClassName('x5 y9')[0];
-        let F8 = document.getElementsByClassName('x6 y9')[0];
+        let F6 = squareAt('x4 y9');
+        let F7 = squareAt('x5 y9');
+        let F8 = squareAt('x6 y9');
         
         moveFromTo(B1, 1, 6, 4, 6);
         moveFromTo(B2, 2, 6, 5, 6);
@@ -365,32 +377,32 @@ Cube = {};
     }
 
     Cube.B = function B() {
-        let G1 = document.getElementsByClassName('x9 y4')[0];
-        let G2 = document.getElementsByClassName('x9 y5')[0];
-        let G3 = document.getElementsByClassName('x9 y6')[0];
+        let G1 = squareAt('x9 y4');
+        let G2 = squareAt('x9 y5');
+        let G3 = squareAt('x9 y6');
         
-        let Y1 = document.getElementsByClassName('x4 y1')[0];
-        let Y2 = document.getElementsByClassName('x5 y1')[0];
-        let Y3 = document.getElementsByClassName('x6 y1')[0];
+        let Y1 = squareAt('x4 y1');
+        let Y2 = squareAt('x5 y1');
+        let Y3 = squareAt('x6 y1');
         
-        let B1 = document.getElementsByClassName('x1 y4')[0];
-        let B2 = document.getElementsByClassName('x1 y5')[0];
-        let B3 = document.getElementsByClassName('x1 y6')[0];
+        let B1 = squareAt('x1 y4');
+        let B2 = squareAt('x1 y5');
+        let B3 = squareAt('x1 y6');
         
-        let W1 = document.getElementsByClassName('x4 y9')[0];
-        let W2 = document.getElementsByClassName('x5 y9')[0];
-        let W3 = document.getElementsByClassName('x6 y9')[0];
+        let W1 = squareAt('x4 y9');
+        let W2 = squareAt('x5 y9');
+        let W3 = squareAt('x6 y9');
         
-        let F1 = document.getElementsByClassName('x10 y4')[0];
-        let F2 = document.getElementsByClassName('x11 y4')[0];
-        let F3 = document.getElementsByClassName('x12 y4')[0];
+        let F1 = squareAt('x10 y4');
+        let F2 = squareAt('x11 y4');
+        let F3 = squareAt('x12 y4');
         
-        let F4 = document.getElementsByClassName('x10 y5')[0];
-        let F5 = document.getElementsByClassName('x12 y5')[0];
+        let F4 = squareAt('x10 y5');
+        let F5 = squareAt('x12 y5');
 
-        let F6 = document.getElementsByClassName('x10 y6')[0];
-        let F7 = document.getElementsByClassName('x11 y6')[0];
-        let F8 = document.getElementsByClassName('x12 y6')[0];
+        let F6 = squareAt('x10 y6');
+        let F7 = squareAt('x11 y6');
+        let F8 = squareAt('x12 y6');
         
         moveFromTo(G1, 9, 4, 4, 1);
         moveFromTo(G2, 9, 5, 5, 1);
