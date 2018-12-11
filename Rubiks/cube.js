@@ -75,7 +75,7 @@ Cube = {};
 
     Cube.applyMove = function applyMove(event, move, movePrime) {
         let shift = document.getElementById('shift');
-        if (event.shiftKey || shift.is(':checked')) {
+        if (event.shiftKey || shift.value) {
             movePrime();
         } else {
             move();
