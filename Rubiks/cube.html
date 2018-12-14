@@ -16,7 +16,14 @@
     <div id="actions">
         <ul>
             <li class="btn" onclick="Cube.shuffle()">Shuffle</li>
+            <li class="btn" onclick="Cube.make()">Reset</li>
             <li><input type="checkbox" id="shift" name="shift" /><label for="shift">counter-clockwise (or use shift when clicking)</label> </li>
+            <li class="btn" onclick="Cube.askForDemo()" id="askForDemo">Demo function</li>
+            <li id="demoDisplay" style="display:none"></li>
+            <li id="demoControls" style="display:none">
+                <div class="btn" onclick="Cube.playDemo()" style="margin-right:5px;">&#9658;</div>
+                <div class="btn" onclick="Cube.playNextDemoMove()">&#8594;</div>
+            </li>
         </ul>
     </div>
 

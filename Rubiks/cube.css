@@ -21,7 +21,7 @@ body {
     height: 25px;
     border-radius: 5px;
     position: absolute;
-    transition: left 1s, top 1s, box-shadow 1s;
+    transition: left 0.5s, top 0.5s, box-shadow 0.5s;
     border: 1px black inset;
 }
 
@@ -182,4 +182,22 @@ body {
 
 .btn:active {
     background: linear-gradient(155deg, lightgray, white);
+}
+
+.movesplit {
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    background: lightgray;
+    transition: background 0.5s;
+    color: black;
+    line-height: 25px;
+    text-align: center;
+    vertical-align: middle;
+    margin:5px;
+    display: inline-block;
+}
+
+.movesplit.current {
+    background: gold;
 }

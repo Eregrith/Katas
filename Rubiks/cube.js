@@ -6,39 +6,58 @@ Cube = {};
 
 (function (Cube) {
 
-    let colors = ['green', 'yellow', 'white', 'red', 'blue', 'orange'];
+    Object.prototype.show = function show() {
+        this.style.display = '';
+    }
 
-    function makeDivs(color, x, y) {
+    Object.prototype.hide = function hide() {
+        this.style.display = 'none';
+    }
+
+    Object.prototype.clearChildren = function clearChildren() {
+        while (this.firstChild) {
+            this.removeChild(this.firstChild);
+        }
+    }
+
+    Cube.make = function makeCube() {
+        function makeDivs(color, x, y) {
+            let divs = [];
+            for (xx = 1; xx < 4; xx++) {
+                for (yy = 1; yy < 4; yy ++) {
+                    let div = document.createElement('div');
+                    div.className = 'square' + ' ' + color + ' ' + 'x' + (x - - xx) + ' ' + 'y' + (y - - yy);
+                    divs.push(div);
+                }
+            }
+            return divs;
+        }
+
+        let cube = document.getElementById('cube');
+
+        [...document.getElementsByClassName('square')].forEach(e => cube.removeChild(e));
+        
+        let yellows = makeDivs('yellow', 3, 0);
+        let blues = makeDivs('blue', 0, 3);
+        let reds = makeDivs('red', 3, 3);
+        let greens = makeDivs('green', 6, 3);
+        let oranges = makeDivs('orange', 9, 3);
+        let whites = makeDivs('white', 3, 6);
         let divs = [];
-        for (xx = 1; xx < 4; xx++) {
-            for (yy = 1; yy < 4; yy ++) {
-                let div = document.createElement('div');
-                div.className = 'square' + ' ' + color + ' ' + 'x' + (x - - xx) + ' ' + 'y' + (y - - yy);
-                divs.push(div);
+        divs.push(...yellows);
+        divs.push(...blues);
+        divs.push(...reds);
+        divs.push(...greens);
+        divs.push(...whites);
+        divs.push(...oranges);
+        for (i in divs) {
+            if (divs.hasOwnProperty(i)) {
+                cube.appendChild(divs[i]);
             }
         }
-        return divs;
     }
 
-    let cube = document.getElementById('cube');
-    let yellows = makeDivs('yellow', 3, 0);
-    let blues = makeDivs('blue', 0, 3);
-    let reds = makeDivs('red', 3, 3);
-    let greens = makeDivs('green', 6, 3);
-    let oranges = makeDivs('orange', 9, 3);
-    let whites = makeDivs('white', 3, 6);
-    let divs = [];
-    divs.push(...yellows);
-    divs.push(...blues);
-    divs.push(...reds);
-    divs.push(...greens);
-    divs.push(...whites);
-    divs.push(...oranges);
-    for (i in divs) {
-        if (divs.hasOwnProperty(i)) {
-            cube.appendChild(divs[i]);
-        }
-    }
+    Cube.make();
 
     function moveFromTo(square, x, y, toX, toY) {
         square.classList.remove('x'+x)
@@ -456,7 +475,108 @@ Cube = {};
         let shuffleCount = 30;
         
         for (i = 0; i < shuffleCount; i++) {
-            setTimeout(Cube.useRandomMovement, 250 * i);
+            setTimeout(Cube.useRandomMovement, 400 * i);
+        }
+    }
+
+    Cube.askForDemo = function askForDemo() {
+        let func = prompt('Enter your function with notation:');
+        if (func != '' && func != null) {
+            Cube.demo(func);
+        }
+    }
+
+    function splitMovements(movements) {
+        let letters = [];
+        for (i = 0; i < movements.length; i++) {
+            let letter = movements.charAt(i)
+            if ("UDLRFB".includes(letter)) {
+                if (i != movements.length && "'2".includes(movements.charAt(i+1))) {
+                    letter += movements.charAt(i+1);
+                }
+                letters.push(letter);
+            }
+        }
+        return letters;
+    }
+
+    Cube.demo = function demo(movements) {
+        let demoDisplay = document.getElementById('demoDisplay');
+        let demoControls = document.getElementById('demoControls');
+        let askForDemo = document.getElementById('askForDemo');
+        demoDisplay.clearChildren();
+        let movementSplits = splitMovements(movements);
+        movementSplits.forEach((split) => {
+            let splitDiv = document.createElement('div');
+            splitDiv.className = 'movesplit';
+            splitDiv.innerHTML = split;
+            demoDisplay.appendChild(splitDiv);
+        });
+        demoDisplay.show();
+        demoControls.show();
+    }
+
+    let demoIsFinished = false;
+    Cube.playNextDemoMove = function playNextDemoMove() {
+        let currentMove = document.getElementsByClassName('movesplit current')[0];
+        let nextMove;
+        if (currentMove === undefined) {
+            let demoDisplay = document.getElementById('demoDisplay');
+            nextMove = demoDisplay.firstChild;
+        } else {
+            currentMove.classList.remove('current');
+            nextMove = currentMove.nextSibling;
+        }
+        if (nextMove !== null) {
+            nextMove.classList.add('current');
+            let move = nextMove.innerHTML;
+            if (move === "L")
+                Cube.L();
+            if (move === "L2")
+                Cube.L2();
+            if (move === "L'")
+                Cube.Lprime();
+            if (move === "R")
+                Cube.R();
+            if (move === "R2")
+                Cube.R2();
+            if (move === "R'")
+                Cube.Rprime();
+            if (move === "U")
+                Cube.U();
+            if (move === "U2")
+                Cube.U2();
+            if (move === "U'")
+                Cube.Uprime();
+            if (move === "B")
+                Cube.B();
+            if (move === "B2")
+                Cube.B2();
+            if (move === "B'")
+                Cube.Bprime();
+            if (move === "F")
+                Cube.F();
+            if (move === "F2")
+                Cube.F2();
+            if (move === "F'")
+                Cube.Fprime();
+            if (move === "D")
+                Cube.D();
+            if (move === "D2")
+                Cube.D2();
+            if (move === "D'")
+                Cube.Dprime();
+        } else {
+            demoIsFinished = true;
+        }
+    }
+
+    Cube.playDemo = function playDemo() {
+        if (!demoIsFinished) {
+            Cube.playNextDemoMove();
+            setTimeout(Cube.playDemo, 700);
+        } else {
+            demoIsFinished = false;
         }
     }
 
