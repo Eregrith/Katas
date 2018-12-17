@@ -455,6 +455,192 @@ Cube = {};
         Cube.B();
     }
 
+    Cube.M = function M() {
+        let Y1 = squareAt('x5 y1');
+        let Y2 = squareAt('x5 y2');
+        let Y3 = squareAt('x5 y3');
+        
+        let R1 = squareAt('x5 y4');
+        let R2 = squareAt('x5 y5');
+        let R3 = squareAt('x5 y6');
+        
+        let W1 = squareAt('x5 y7');
+        let W2 = squareAt('x5 y8');
+        let W3 = squareAt('x5 y9');
+        
+        let O1 = squareAt('x11 y4');
+        let O2 = squareAt('x11 y5');
+        let O3 = squareAt('x11 y6');
+        
+        moveFromTo(Y1, 5, 1, 5, 4);
+        moveFromTo(Y2, 5, 2, 5, 5);
+        moveFromTo(Y3, 5, 3, 5, 6);
+
+        moveFromTo(R1, 5, 4, 5, 7);
+        moveFromTo(R2, 5, 5, 5, 8);
+        moveFromTo(R3, 5, 6, 5, 9);
+
+        moveFromTo(W1, 5, 7, 11, 6);
+        moveFromTo(W2, 5, 8, 11, 5);
+        moveFromTo(W3, 5, 9, 11, 4);
+
+        moveFromTo(O1, 11, 4, 5, 3);
+        moveFromTo(O2, 11, 5, 5, 2);
+        moveFromTo(O3, 11, 6, 5, 1);
+    }
+
+    Cube.M2 = function M2() {
+        Cube.M();
+        Cube.M();
+    }
+
+    Cube.Mprime = function Mprime() {
+        Cube.M();
+        Cube.M();
+        Cube.M();
+    }
+
+    Cube.E = function E() {
+        let B1 = squareAt('x1 y5');
+        let B2 = squareAt('x2 y5');
+        let B3 = squareAt('x3 y5');
+        
+        let R1 = squareAt('x4 y5');
+        let R2 = squareAt('x5 y5');
+        let R3 = squareAt('x6 y5');
+        
+        let G1 = squareAt('x7 y5');
+        let G2 = squareAt('x8 y5');
+        let G3 = squareAt('x9 y5');
+
+        let O1 = squareAt('x10 y5');
+        let O2 = squareAt('x11 y5');
+        let O3 = squareAt('x12 y5');
+        
+        moveFromTo(B1, 1, 5, 4, 5);
+        moveFromTo(B2, 2, 5, 5, 5);
+        moveFromTo(B3, 3, 5, 6, 5);
+
+        moveFromTo(R1, 4, 5, 7, 5);
+        moveFromTo(R2, 5, 5, 8, 5);
+        moveFromTo(R3, 6, 5, 9, 5);
+
+        moveFromTo(G1, 7, 5, 10, 5);
+        moveFromTo(G2, 8, 5, 11, 5);
+        moveFromTo(G3, 9, 5, 12, 5);
+
+        moveFromTo(O1, 10, 5, 1, 5);
+        moveFromTo(O2, 11, 5, 2, 5);
+        moveFromTo(O3, 12, 5, 3, 5);
+    }
+
+    Cube.E2 = function E2() {
+        Cube.E();
+        Cube.E();
+    }
+
+    Cube.Eprime = function Eprime() {
+        Cube.E();
+        Cube.E();
+        Cube.E();
+    }
+
+    Cube.S = function S() {
+        let Y1 = squareAt('x4 y2');
+        let Y2 = squareAt('x5 y2');
+        let Y3 = squareAt('x6 y2');
+        
+        let G1 = squareAt('x8 y4');
+        let G2 = squareAt('x8 y5');
+        let G3 = squareAt('x8 y6');
+        
+        let W1 = squareAt('x4 y8');
+        let W2 = squareAt('x5 y8');
+        let W3 = squareAt('x6 y8');
+
+        let B1 = squareAt('x2 y4');
+        let B2 = squareAt('x2 y5');
+        let B3 = squareAt('x2 y6');
+        
+        moveFromTo(Y1, 4, 2, 8, 4);
+        moveFromTo(Y2, 5, 2, 8, 5);
+        moveFromTo(Y3, 6, 2, 8, 6);
+
+        moveFromTo(G1, 8, 4, 6, 8);
+        moveFromTo(G2, 8, 5, 5, 8);
+        moveFromTo(G3, 8, 6, 4, 8);
+
+        moveFromTo(W1, 4, 8, 2, 4);
+        moveFromTo(W2, 5, 8, 2, 5);
+        moveFromTo(W3, 6, 8, 2, 6);
+
+        moveFromTo(B1, 2, 4, 6, 2);
+        moveFromTo(B2, 2, 5, 5, 2);
+        moveFromTo(B3, 2, 6, 4, 2);
+    }
+
+    Cube.S2 = function S2() {
+        Cube.S();
+        Cube.S();
+    }
+
+    Cube.Sprime = function Sprime() {
+        Cube.S();
+        Cube.S();
+        Cube.S();
+    }
+
+    Cube.x = function x() {
+        Cube.Lprime();
+        Cube.Mprime();
+        Cube.R();
+    }
+
+    Cube.x2 = function x2() {
+        Cube.x();
+        Cube.x();
+    }
+
+    Cube.xprime = function xprime() {
+        Cube.x();
+        Cube.x();
+        Cube.x();
+    }
+
+    Cube.y = function y() {
+        Cube.U();
+        Cube.Dprime();
+        Cube.Eprime();
+    }
+
+    Cube.y2 = function y2() {
+        Cube.y();
+        Cube.y();
+    }
+
+    Cube.yprime = function yprime() {
+        Cube.y();
+        Cube.y();
+        Cube.y();
+    }
+
+    Cube.z = function z() {
+        Cube.F();
+        Cube.Bprime();
+        Cube.S();
+    }
+
+    Cube.z2 = function z2() {
+        Cube.z();
+        Cube.z();
+    }
+
+    Cube.zprime = function zprime() {
+        Cube.z();
+        Cube.z();
+        Cube.z();
+    }
+
     function rand(from, to) {
         return Math.floor((Math.random() * to) + from);
     }
@@ -465,17 +651,23 @@ Cube = {};
                           Cube.R,Cube.R2,Cube.Rprime,
                           Cube.L,Cube.L2,Cube.Lprime,
                           Cube.F,Cube.F2,Cube.Fprime,
-                          Cube.B,Cube.B2,Cube.Bprime ];
+                          Cube.B,Cube.B2,Cube.Bprime,
+                          Cube.M,Cube.M2,Cube.Mprime,
+                          Cube.E,Cube.E2,Cube.Eprime,
+                          Cube.S,Cube.S2,Cube.Sprime,
+                          Cube.x,Cube.x2,Cube.xprime,
+                          Cube.y,Cube.y2,Cube.yprime,
+                          Cube.z,Cube.z2,Cube.zprime ];
         let num = movements.length;
 
         return movements[rand(0, num)]();
     }
 
     Cube.shuffle = function shuffle() {
-        let shuffleCount = 30;
+        let shuffleCount = 60;
         
         for (i = 0; i < shuffleCount; i++) {
-            setTimeout(Cube.useRandomMovement, 400 * i);
+            setTimeout(Cube.useRandomMovement, 250 * i);
         }
     }
 
@@ -490,7 +682,7 @@ Cube = {};
         let letters = [];
         for (i = 0; i < movements.length; i++) {
             let letter = movements.charAt(i)
-            if ("UDLRFB".includes(letter)) {
+            if ("UDLRFBMSExyz".includes(letter)) {
                 if (i != movements.length && "'2".includes(movements.charAt(i+1))) {
                     letter += movements.charAt(i+1);
                 }
@@ -566,6 +758,42 @@ Cube = {};
                 Cube.D2();
             if (move === "D'")
                 Cube.Dprime();
+            if (move === "M")
+                Cube.M();
+            if (move === "M2")
+                Cube.M2();
+            if (move === "M'")
+                Cube.Mprime();
+            if (move === "E")
+                Cube.E();
+            if (move === "E2")
+                Cube.E2();
+            if (move === "E'")
+                Cube.Eprime();
+            if (move === "S")
+                Cube.S();
+            if (move === "S2")
+                Cube.S2();
+            if (move === "S'")
+                Cube.Sprime();
+            if (move === "x")
+                Cube.x();
+            if (move === "x2")
+                Cube.x2();
+            if (move === "x'")
+                Cube.xprime();
+            if (move === "y")
+                Cube.y();
+            if (move === "y2")
+                Cube.y2();
+            if (move === "y'")
+                Cube.yprime();
+            if (move === "z")
+                Cube.z();
+            if (move === "z2")
+                Cube.z2();
+            if (move === "z'")
+                Cube.zprime();
         } else {
             demoIsFinished = true;
         }
